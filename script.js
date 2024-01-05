@@ -1,8 +1,9 @@
-function sendMessage() {
+document.addEventListener('DOMContentLoaded', function() {
+  function sendMessage() {
     const messageInput = document.getElementById('message-input');
     const message = messageInput.value.trim();
     if (message !== '') {
-      const chatMessages = document.querySelector('.chat-messages');
+      const chatMessages = document.getElementById('chat-messages');
       const messageElement = document.createElement('div');
       messageElement.classList.add('message');
       messageElement.textContent = message;
@@ -11,7 +12,7 @@ function sendMessage() {
       chatMessages.scrollTop = chatMessages.scrollHeight;
     }
   }
-  
+
   document.getElementById('send-button').addEventListener('click', sendMessage);
   document.getElementById('message-input').addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
@@ -19,3 +20,4 @@ function sendMessage() {
       sendMessage();
     }
   });
+});
